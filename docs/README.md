@@ -2,12 +2,12 @@
 
 - **[vuepress 공식 사이트](https://vuepress.vuejs.org)** 
   
-- vuepress 설치
+1. vuepress 설치
 ```
 npm install -D vuepress
 ```
 
-- 디렉토리 셋팅
+2. 디렉토리 셋팅
 
 ```
 ├─ docs
@@ -17,7 +17,7 @@ npm install -D vuepress
 └─ package.json
 ```
 
-- package.json 런 스트립트 추가
+3. package.json 런 스트립트 추가
 
 ```
 {
@@ -28,7 +28,7 @@ npm install -D vuepress
 }
 ```
 
-- config.js 셋팅
+4. config.js 셋팅
 
 ```
 module.exports = {
@@ -38,7 +38,20 @@ module.exports = {
 }
 ```
 
-- deploy.sh 만들기
+5. gh-pages 빈 브랜치 만들기
+  
+```
+git checkout --orphan gh-pages
+git rm -rf .
+git add index.html
+git commit -m "First commit"
+$git push origin gh-pages
+```
+
+6. github setting tab에서 github pages - Source - gh-pages branch 설정
+  
+
+7. deploy.sh 만들기
   
 ```sh
 #!/usr/bin/env sh
@@ -64,6 +77,8 @@ git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+
+git push -f https://github.com/mmmoikim/vuepress-setting.git master:gh-pages
 
 cd -
   ```
